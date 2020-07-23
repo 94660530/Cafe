@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import top.xeonwang.tmxk.dao.OrderMapper;
+import top.xeonwang.tmxk.domain.OrderPrice;
 import top.xeonwang.tmxk.service.OrderService;
 @Service("OrderService")
 @Transactional
@@ -47,5 +48,12 @@ public class OrderServiceImpl implements OrderService
 	{
 		// TODO Auto-generated method stub
 		return ordermapper.GetTime(OrderId);
+	}
+
+	@Override
+	public OrderPrice GetPrice(String OrderId)
+	{
+		// TODO Auto-generated method stub
+		return ordermapper.GetPrice(OrderId);
 	}
 }

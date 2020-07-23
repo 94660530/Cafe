@@ -97,7 +97,7 @@ public class historyController
 	public String GetPerc()
 	{
 		ArrayList<Food_PerCent> f_p = ofuservice.GetPercent();
-//		f_p.sort(null);
+		f_p.sort(null);
 		return JSONObject.toJSONString(f_p);
 	}
 	

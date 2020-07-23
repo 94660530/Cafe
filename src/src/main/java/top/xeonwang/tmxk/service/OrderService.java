@@ -1,5 +1,7 @@
 package top.xeonwang.tmxk.service;
 
+import top.xeonwang.tmxk.domain.OrderPrice;
+
 public interface OrderService
 {
 	// 增加订单
@@ -16,4 +18,7 @@ public interface OrderService
 
 	// 获取订单时间
 	public String GetTime(String OrderId);
+
+	// 查询订单id,时间,金额
+	public OrderPrice GetPrice(String OrderId);
 }

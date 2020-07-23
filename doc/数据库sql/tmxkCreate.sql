@@ -42,7 +42,7 @@ create table if not exists AUTHOR(
 );
 /*角色*/
 create table if not exists ROLETABLE(
-	roleid int not null auto_increment,/*角色id*/
+	roleid int primary key not null auto_increment,/*角色id*/
     rolename varchar(20) not null /*角色名称*/
 );
 

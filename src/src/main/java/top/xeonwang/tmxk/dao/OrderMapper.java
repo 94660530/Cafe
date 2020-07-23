@@ -2,6 +2,8 @@ package top.xeonwang.tmxk.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import top.xeonwang.tmxk.domain.OrderPrice;
 @Repository
 public interface OrderMapper
 {
@@ -19,4 +21,7 @@ public interface OrderMapper
 	
 	//获取订单时间
 	public String GetTime(@Param("OrderId") String OrderId);
+	
+	//查询订单id,时间,金额
+	public OrderPrice GetPrice(@Param("OrderId") String OrderId);
 }

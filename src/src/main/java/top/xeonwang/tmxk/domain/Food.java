@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Food
 {
-	private String FoodId;
+	private int FoodId;
 	@JsonProperty("foodname")
 	private String FoodName;
 	@JsonProperty("foodtype")
@@ -18,12 +18,12 @@ public class Food
 	@JsonProperty("foodprice")
 	private double FoodPrice;
 
-	public String getFoodId()
+	public int getFoodId()
 	{
 		return this.FoodId;
 	}
 
-	public void setFoodId(String id)
+	public void setFoodId(int id)
 	{
 		this.FoodId = id;
 	}

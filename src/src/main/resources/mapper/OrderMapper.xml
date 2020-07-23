@@ -22,11 +22,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 	<select id="GetStutas" resultType="String">
-		SELECT orderstatus FROM txmk.ORDERINF WHERE orderid = #{OrderId}
+		SELECT orderstatus FROM
+		txmk.ORDERINF WHERE orderid = #{OrderId}
 	</select>
 
 	<select id="GetTime" resultType="String">
-		SELECT ordertime FROM txmk.ORDERINF WHERE orderid = #{OrderId}
+		SELECT ordertime FROM
+		txmk.ORDERINF WHERE orderid = #{OrderId}
+	</select>
+
+	<select id="GetPrice"
+		resultType="top.xeonwang.tmxk.domain.OrderPrice">
+		SELECT orderid,ordertime,SUM(foodprice * foodnumber)
+		FROM(SELECT food.foodid,foodnumber,foodprice,ofu.orderid,ordertime
+		FROM food,orderinf,ofu WHERE orderinf.orderid=ofu.orderid AND
+		food.foodid=ofu.foodid) AS A WHERE orderid=#{OrderId} GROUP BY orderid
 	</select>
 
 </mapper>

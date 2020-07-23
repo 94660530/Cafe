@@ -38,7 +38,7 @@ public class OAServiceImpl implements OAService
 	}
 
 	@Override
-	public ArrayList<String> GetAllHistory()
+	public ArrayList<Integer> GetAllHistory()
 	{
 		// TODO Auto-generated method stub
 		return oamapper.GetAllHistory();

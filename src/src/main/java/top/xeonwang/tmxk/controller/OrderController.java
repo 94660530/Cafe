@@ -13,12 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import top.xeonwang.tmxk.domain.OrderPrice;
 import top.xeonwang.tmxk.domain.UF;
-import top.xeonwang.tmxk.domain.UserOrder;
 import top.xeonwang.tmxk.domain.UserToken;
 import top.xeonwang.tmxk.service.FoodService;
 import top.xeonwang.tmxk.service.OAService;
@@ -98,6 +99,23 @@ public class OrderController
 		
 		re.put("ok", "true");
 		return om.writeValueAsString(re);
-
 	}
+	
+	@RequestMapping("/updateOrder")
+	@ResponseBody
+	public String UpdateOrder(HttpServletRequest request)
+	{
+		ArrayList<OrderPrice> o = new ArrayList<OrderPrice>();
+		
+		ArrayList<String> orderId = oaservice.GetAllHistory();
+		
+		for(int i = 0;i < orderId.size();i++)
+		{
+			o.add(orderservice.GetPrice(orderId.get(i)));
+		}
+		
+		return JSONObject.toJSONString(o);
+		
+	}
+	
 }

@@ -1,10 +1,10 @@
 package top.xeonwang.tmxk.domain;
 
-public class OrderInf
+public class OrderPrice
 {
 	private int OrderId;
 	private String OrderTime;
-	private String OrderStatus;
+	private int OrderPrice;
 	
 	public int getOrderId()
 	{
@@ -22,13 +22,12 @@ public class OrderInf
 	{
 		this.OrderTime = time;
 	}
-	public String getOrderStatus()
+	public int getOrderPrice()
 	{
-		return this.OrderStatus;
+		return this.OrderPrice;
 	}
-	public void setOrderStatus(String status)
+	public void setOrderPrice(int p)
 	{
-		this.OrderStatus = status;
+		this.OrderPrice = p;
 	}
-	
 }
